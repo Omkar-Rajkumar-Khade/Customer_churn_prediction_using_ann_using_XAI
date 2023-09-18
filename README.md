@@ -85,9 +85,9 @@ The repository contains the following files:
 ### Model Accuracy : 
 The project employs different classification algorithms, and here are their accuracy scores:
 
-Random Forest Classifier: 0.8565 (86%)
-Decision Tree Classifier: 0.7875(79%)
-XGBoost Classifier: 0.8465 (85%)
+* Random Forest Classifier: 0.8565 (86%)
+* Decision Tree Classifier: 0.7875(79%)
+* XGBoost Classifier: 0.8465 (85%)
 These accuracy scores reflect the performance of the respective models in predicting customer churn.
 
 ### Technologies Used: 
