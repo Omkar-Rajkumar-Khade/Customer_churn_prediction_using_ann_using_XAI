@@ -12,7 +12,7 @@ To run the project, follow these steps:
 
 1) Clone the repository:
 ```
-git clone https://github.com/your-username/customer_churn_prediction_using_ann_using_XAI.git
+https://github.com/Omkar-Rajkumar-Khade/Customer_churn_prediction_using_ann_using_XAI.git
 ```
 2) Install the required libraries: 
 ```
@@ -27,6 +27,14 @@ pip install pandas numpy scikit-learn shap lime matplotlib streamlit
 6) The app will open in your default web browser, allowing you to input feature values and see churn predictions.
 
 Note: Please update the file paths if necessary and ensure that the required libraries are installed.
+
+### Technologies Used: 
+* Python
+* Streamlit
+* scikit-learn ( machine learning)
+* pickle
+* SHAP (SHapley Additive exPlanations)
+* Lime (Local Interpretable Model-agnostic Explanations)
 
 ### Usage
 *app.py*
@@ -82,6 +90,60 @@ The repository contains the following files:
 
 `README.md`: Project documentation and instructions.
 
+
+
+Sure, here's a README.md file in Markdown format for your code:
+
+Bank Customer Churn Prediction
+This project focuses on predicting customer churn in a bank using machine learning techniques. Customer churn refers to the phenomenon where customers stop doing business with a company, in this case, leaving the bank. We will explore and visualize the data, preprocess it, train machine learning models, and use two explainability techniques, SHAP and LIME, to understand model predictions.
+
+Getting Started
+Prerequisites
+Make sure you have the following libraries installed:
+
+numpy
+pandas
+matplotlib
+seaborn
+sklearn
+xgboost
+shap
+lime
+You can install these libraries using pip:
+
+Copy code
+pip install numpy pandas matplotlib seaborn scikit-learn xgboost shap lime
+Data
+The dataset used for this project is stored in a CSV file named Bank Customer Churn Prediction.csv. The dataset contains information about bank customers, including features like credit score, age, tenure, balance, and more. The goal is to predict whether a customer will churn (leave the bank) or not.
+
+Running the Code
+Clone this repository:
+bash
+Copy code
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+Place the dataset CSV file (Bank Customer Churn Prediction.csv) in the same directory as the code.
+
+Run the code by executing the Python script.
+
+
+### Code Structure
+1) Data Loading and Preprocessing: The code begins by loading the dataset and performing initial data preprocessing, including dropping unnecessary columns like 'country' and 'gender'.
+
+2) Data Visualization: The code visualizes the correlation matrix and the distribution of numeric features in the dataset using matplotlib and seaborn.
+
+3) Data Split and Scaling: The dataset is split into training and testing sets, and feature scaling is applied using StandardScaler.
+
+4) Model Training: Three different classification models are trained: Random Forest, Decision Tree, and XGBoost.
+
+4) Model Evaluation: The code evaluates each model's accuracy on the test data and generates a confusion matrix.
+
+5) Explainability: The code uses SHAP and LIME to explain model predictions for a specific data point.
+
+5) Model Saving: The trained Random Forest model is saved using pickle.
+
+6) Frontend: Interactive web application built with Streamlit
+
 ### Model Accuracy : 
 The project employs different classification algorithms, and here are their accuracy scores:
 
@@ -90,10 +152,5 @@ The project employs different classification algorithms, and here are their accu
 * XGBoost Classifier: 0.8465 (85%)
 These accuracy scores reflect the performance of the respective models in predicting customer churn.
 
-### Technologies Used: 
-* Python
-* Streamlit
-* scikit-learn
-* SHAP (SHapley Additive exPlanations)
-* Lime (Local Interpretable Model-agnostic Explanations)
+
 
