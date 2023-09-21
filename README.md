@@ -67,7 +67,7 @@ Dataset Download Link: https://www.kaggle.com/datasets/gauravtopre/bank-customer
 
 `balance`: Used as an input.
 
-`products_number` : Used as an input.
+`products_number`: Used as an input.
 
 `credit_card`: Used as an input.
 
@@ -91,66 +91,105 @@ The repository contains the following files:
 `README.md`: Project documentation and instructions.
 
 
-
-Sure, here's a README.md file in Markdown format for your code:
-
-Bank Customer Churn Prediction
-This project focuses on predicting customer churn in a bank using machine learning techniques. Customer churn refers to the phenomenon where customers stop doing business with a company, in this case, leaving the bank. We will explore and visualize the data, preprocess it, train machine learning models, and use two explainability techniques, SHAP and LIME, to understand model predictions.
-
-Getting Started
-Prerequisites
-Make sure you have the following libraries installed:
-
-numpy
-pandas
-matplotlib
-seaborn
-sklearn
-xgboost
-shap
-lime
-You can install these libraries using pip:
-
-Copy code
-pip install numpy pandas matplotlib seaborn scikit-learn xgboost shap lime
-Data
-The dataset used for this project is stored in a CSV file named Bank Customer Churn Prediction.csv. The dataset contains information about bank customers, including features like credit score, age, tenure, balance, and more. The goal is to predict whether a customer will churn (leave the bank) or not.
-
-Running the Code
-Clone this repository:
-bash
-Copy code
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-Place the dataset CSV file (Bank Customer Churn Prediction.csv) in the same directory as the code.
-
-Run the code by executing the Python script.
-
-
 ### Code Structure
-1) Data Loading and Preprocessing: The code begins by loading the dataset and performing initial data preprocessing, including dropping unnecessary columns like 'country' and 'gender'.
+The code performs the following steps:
 
-2) Data Visualization: The code visualizes the correlation matrix and the distribution of numeric features in the dataset using matplotlib and seaborn.
+1. Data Preprocessing:
+   - Reads the dataset using Pandas.
+   - Drops irrelevant columns ('country' and 'gender').
+   - Visualizes the correlation matrix and numeric feature distributions.
 
-3) Data Split and Scaling: The dataset is split into training and testing sets, and feature scaling is applied using StandardScaler.
+2. Data Split:
+   - Splits the data into training and testing sets.
 
-4) Model Training: Three different classification models are trained: Random Forest, Decision Tree, and XGBoost.
+3. Data Scaling:
+   - Standardizes the features using StandardScaler.
 
-4) Model Evaluation: The code evaluates each model's accuracy on the test data and generates a confusion matrix.
+4. Model Building:
+   - Creates three classifiers: Random Forest, Decision Tree, and XGBoost.
+   - Trains the models on the training data.
 
-5) Explainability: The code uses SHAP and LIME to explain model predictions for a specific data point.
+5. Model Evaluation:
+   - Predicts on the test data.
+   - Calculates and prints accuracy for each model.
+   - Generates a confusion matrix and heatmap for the Random Forest model.
 
-5) Model Saving: The trained Random Forest model is saved using pickle.
+6. Model Interpretability:
+   - Uses SHAP (SHapley Additive exPlanations) to explain model predictions.
+   - Uses LIME (Local Interpretable Model-agnostic Explanations) to explain a specific prediction.
 
-6) Frontend: Interactive web application built with Streamlit
+7. Model Serialization:
+   - Saves the trained Random Forest model to a .pkl file.
+  
+8. Frontend :
+   - Interactive web application frontend built with Streamlit
 
-### Model Accuracy : 
+### Data Preprocessing & Exploratory Data Analysis
+* The code starts by importing necessary libraries such as NumPy, pandas, matplotlib, seaborn, and scikit-learn.
+* It loads the dataset using pandas and drops irrelevant columns ('country' and 'gender').
+* Data is split into training and testing sets, and feature scaling is applied using StandardScaler.
+* The correlation matrix of the dataset is visualized using a heatmap.
+* The distribution of numeric features is visualized through histograms.
+
+### Model Building
+Three machine learning models are employed:
+
+* Random Forest Classifier: A Random Forest classifier is created and trained on the scaled training data.
+* Decision Tree Classifier: A Decision Tree classifier is created and trained on the scaled training data.
+* XGBoost Classifier: An XGBoost classifier is created and trained on the scaled training data.
+
+
+### Model Evaluation : 
+
+1) Accuracy is calculated for each model using the test data.
+2) Confusion matrices are generated and visualized using seaborn.
+
 The project employs different classification algorithms, and here are their accuracy scores:
 
 * Random Forest Classifier: 0.8565 (86%)
 * Decision Tree Classifier: 0.7875(79%)
 * XGBoost Classifier: 0.8465 (85%)
 These accuracy scores reflect the performance of the respective models in predicting customer churn.
+
+### Explainable AI
+we have added explanations for model predictions using SHAP and LIME techniques for a selected data point.
+
+1. SHAP (Shapley Additive exPlanations) is a model-agnostic method for explaining the predictions of any machine learning model. It works by calculating the contribution of each feature to the prediction, taking into account all possible combinations of features.
+   -  ![SHAP Explanation](https://drive.google.com/file/d/1fS7xTF0boKSJ6XOduOjhCx97hlLgNom3/view)
+  
+     The SHAP Explanation image shows the contribution of each feature to the prediction of the Random Forest Classifier for the selected instance. The features are represented by horizontal bars, and the length of a bar represents the magnitude of its contribution. The color of a bar indicates whether the contribution is positive (red) or negative (blue).
+
+    * The following is an explanation of the image, with reference to the code provided:
+
+      1) The age feature has a small negative contribution to the prediction, which means that it slightly decreases the probability of the customer churning.
+      2) The tenure feature has a small positive contribution to the prediction, which means that it slightly increases the probability of the customer churning.
+      3) The balance feature has a small negative contribution to the prediction, which means that it slightly decreases the probability of the customer churning.
+      4) The products_number feature has a small negative contribution to the prediction, which means that it slightly decreases the probability of the customer churning.
+      5) The estimated_salary feature has a small positive contribution to the prediction, which means that it slightly increases the probability of the customer churning.
+
+2. LIME (Local Interpretable Model-Agnostic Explanations) is another model-agnostic method for explaining the predictions of any machine learning model. It works by creating a local linear model that approximates the predictions of the original model around a specific instance.
+   - ![Lime Explanation](https://drive.google.com/file/d/1fS7xTF0boKSJ6XOduOjhCx97hlLgNom3/view)
+   - 
+      The LIME Explanation image shows the contribution of each feature to the prediction of the Random Forest Classifier for the selected instance. The features are represented by bars, and the length of a bar represents the magnitude of its contribution. The color of a bar indicates whether the contribution is positive (red) or negative (blue).
+      
+      * The following is an explanation of the image, with reference to the code provided:
+      
+      1) The credit_score feature has the largest positive contribution to the prediction, which means that it is the most important feature in explaining why the model predicted that the customer will churn.
+      2) The age feature has a small negative contribution to the prediction, which means that it slightly decreases the probability of the customer churning.
+      3) The tenure feature has a small positive contribution to the prediction, which means that it slightly increases the probability of the customer churning.
+      4) The balance feature has a small negative contribution to the prediction, which means that it slightly decreases the probability of the customer churning.
+      5) The products_number feature has a small negative contribution to the prediction, which means that it slightly decreases the probability of the customer churning.
+      T6) he estimated_salary feature has a small positive contribution to the prediction, which means that it slightly increases the probability of the customer churning.
+      Overall, the LIME Explanation image shows that the Random Forest Classifier is predicting that the customer will churn because of their low credit score and high age. However, the model is also taking into account other factors, such as the customer's tenure, balance, number of products, and estimated salary.
+
+
+
+### Save Model:  
+The Random Forest model is saved using pickle and can be used for deployment in a real-world application
+
+## Streamlit Web App for Predictions
+
+In addition to the machine learning model, this repository includes a Streamlit web app for making real-time predictions on customer churn. The app allows users to input customer information and receive predictions on whether a customer is likely to churn or not.
 
 
 
